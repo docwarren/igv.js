@@ -20,6 +20,7 @@
 <body>
 
 <button id="roi-button">Load ROI</button>
+<button id="remove-roi">Remove ROI</button>
 
 <div id="myDiv" style="padding-top: 50px;padding-bottom: 20px; height: auto">
 
@@ -59,7 +60,11 @@
                         color: "rgba(0, 150, 50, 0.25)"
                     }
                 ])
-            })
+            });
+
+            document.getElementById("remove-roi").addEventListener("click", (e) => {
+                if (browser.roi.length > 0) browser.removeROIByName(browser.roi[0].name);
+            });
         })
 
 </script>
