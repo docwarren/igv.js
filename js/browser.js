@@ -595,7 +595,13 @@ Browser.prototype.loadROI = async function (config) {
         this.roi.push(new ROI(config, this.genome));
     }
     await this.updateViews(undefined, undefined, true);
-}
+};
+
+Browser.prototype.removeROIByName = async function (name) {
+    if (!this.roi || this.roi.length === 0) return;
+    this.roi = this.roi.filter(r => r.name !== name);
+    await this.updateViews(undefined, undefined, true);
+};
 
 /**
  * Return a promise to load a track
